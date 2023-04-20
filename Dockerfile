@@ -1,7 +1,7 @@
 FROM python:3.8-slim-buster
 
 #nome do diretório que conterá a aplicação
-WORKDIR /auth_app
+WORKDIR /auth_api
 
 #
 ENV PYTHONUNBUFFERED 1
