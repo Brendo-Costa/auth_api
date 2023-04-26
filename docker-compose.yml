@@ -1,7 +1,7 @@
 version: "3.8"
 
 services:
-  app:
+  auth_api:
     build:
       context: .
       args:
@@ -12,3 +12,24 @@ services:
       - ../auth_api:/auth_api
     command: >
       sh -c "python manage.py runserver 0.0.0.0:8000"
+    environment:
+      - DB_HOST=postgresql
+      - DB_NAME=auth_api_db
+      - DB_USER=dpern
+      - DB_PASS=capacete1040
+    depends_on:
+      - postgresql
+    restart: always
+
+  postgresql:
+    image: postgres:13-alpine
+    volumes:
+      - postgresVolume:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=auth_api_db
+      - POSTGRES_USER=dpern
+      - POSTGRES_PASSWORD=capacete1040
+    restart: always
+ 
+volumes:
+  postgresVolume:
