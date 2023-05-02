@@ -11,7 +11,9 @@ services:
     volumes:
       - ../auth_api:/auth_api
     command: >
-      sh -c "python manage.py runserver 0.0.0.0:8000"
+      sh -c "python manage.py makemigrations && 
+             python manage.py migrate &&
+             python manage.py runserver 0.0.0.0:8000"
     environment:
       - DB_HOST=postgresql
       - DB_NAME=auth_api_db

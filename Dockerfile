@@ -12,8 +12,6 @@ RUN apt-get update && apt-get install -y libpq-dev python-dev libssl-dev build-e
 #copia o arquivo da pasta atual "requirements.txt" copiado para um arquivo "requirements.txt" dentro do container
 COPY requirements.txt requirements.txt
 
-
-
 #roda, dentro do container, o comando para instalar todas as dependencias do projeto listadas no arquivo "requirements.txt"
 RUN pip install -r requirements.txt
 
