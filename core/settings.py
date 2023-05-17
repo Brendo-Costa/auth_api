@@ -39,6 +39,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     
     'auth_api',
+    'rest_framework.authtoken',
+    'rest_framework',
+    'drf_spectacular',
+    'user',
+
 ]
 
 MIDDLEWARE = [
@@ -138,3 +143,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 #This are the oficial user model 
 AUTH_USER_MODEL = 'auth_api.User'
+
+#
+REST_FRAMEWORK = {
+    'DEFAULT_SCHEMA_CLASS':'drf_spectacular.openapi.AutoSchema',
+}
